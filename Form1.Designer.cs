@@ -1,4 +1,6 @@
-﻿namespace GradeApp
+﻿using System.Windows.Forms;
+
+namespace GradeApp
 {
     partial class MainForm
     {
@@ -53,6 +55,7 @@
             this.dataGridViewGrades = new System.Windows.Forms.DataGridView();
             this.TimerSlideGrid = new System.Windows.Forms.Timer(this.components);
             this.btndelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.panelShowGrades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGrades)).BeginInit();
             this.SuspendLayout();
@@ -177,7 +180,8 @@
             this.btnadd.Location = new System.Drawing.Point(19, 468);
             this.btnadd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(132, 43);
+            this.btnadd.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.btnadd.Size = new System.Drawing.Size(103, 43);
             this.btnadd.TabIndex = 19;
             this.btnadd.Text = "Add";
             this.btnadd.UseVisualStyleBackColor = true;
@@ -257,7 +261,7 @@
             this.panelShowGrades.Location = new System.Drawing.Point(717, 0);
             this.panelShowGrades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelShowGrades.Name = "panelShowGrades";
-            this.panelShowGrades.Size = new System.Drawing.Size(515, 464);
+            this.panelShowGrades.Size = new System.Drawing.Size(450, 464);
             this.panelShowGrades.TabIndex = 25;
             this.panelShowGrades.Visible = false;
             // 
@@ -269,7 +273,7 @@
             this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(238, 24);
+            this.txtSearch.Size = new System.Drawing.Size(173, 24);
             this.txtSearch.TabIndex = 12;
             // 
             // lblsearch
@@ -301,7 +305,7 @@
             this.btnhide.BackColor = System.Drawing.SystemColors.Control;
             this.btnhide.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnhide.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnhide.Location = new System.Drawing.Point(3, 423);
+            this.btnhide.Location = new System.Drawing.Point(3, 416);
             this.btnhide.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnhide.Name = "btnhide";
             this.btnhide.Size = new System.Drawing.Size(129, 37);
@@ -312,13 +316,14 @@
             // 
             // dataGridViewGrades
             // 
+            this.dataGridViewGrades.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dataGridViewGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewGrades.Location = new System.Drawing.Point(-1, 41);
             this.dataGridViewGrades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewGrades.Name = "dataGridViewGrades";
             this.dataGridViewGrades.RowHeadersWidth = 51;
             this.dataGridViewGrades.RowTemplate.Height = 24;
-            this.dataGridViewGrades.Size = new System.Drawing.Size(490, 378);
+            this.dataGridViewGrades.Size = new System.Drawing.Size(426, 364);
             this.dataGridViewGrades.TabIndex = 0;
             // 
             // TimerSlideGrid
@@ -329,20 +334,33 @@
             // 
             this.btndelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btndelete.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btndelete.Location = new System.Drawing.Point(157, 468);
+            this.btndelete.Location = new System.Drawing.Point(128, 468);
             this.btndelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btndelete.Name = "btndelete";
-            this.btndelete.Size = new System.Drawing.Size(132, 43);
+            this.btndelete.Size = new System.Drawing.Size(93, 43);
             this.btndelete.TabIndex = 26;
             this.btndelete.Text = "Delete";
             this.btndelete.UseVisualStyleBackColor = true;
             this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(227, 469);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(124, 43);
+            this.btnUpdate.TabIndex = 27;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(988, 523);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btndelete);
             this.Controls.Add(this.panelShowGrades);
             this.Controls.Add(this.btnshow);
@@ -397,6 +415,7 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Timer TimerSlideGrid;
         private System.Windows.Forms.Button btndelete;
+        private Button btnUpdate;
     }
 }
 

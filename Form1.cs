@@ -21,6 +21,9 @@ namespace GradeApp
         {
             InitializeComponent();
 
+
+            dataGridViewGrades.AllowUserToAddRows = false;
+            dataGridViewGrades.RowHeadersVisible = false;
             panelWidth = panelShowGrades.Width;
             hiddenXPosition = this.Width;                  // Panel fully hidden off-screen
             shownXPosition = this.Width - panelWidth;      // Visible position
@@ -172,6 +175,7 @@ namespace GradeApp
                 dataGridViewGrades.Columns["CreatedDate"].Visible = false;
                 dataGridViewGrades.Columns["ModifiedDate"].Visible = false;
 
+
             }
         }
 
@@ -231,5 +235,7 @@ namespace GradeApp
                 MessageBox.Show("Please select a row to delete.");
             }
         }
+
+
     }
 }
