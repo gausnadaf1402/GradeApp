@@ -22,8 +22,6 @@ namespace GradeApp
         {
             InitializeComponent();
 
-
-           
             dataGridViewGrades.AllowUserToAddRows = false;
             dataGridViewGrades.RowHeadersVisible = false;
             dataGridViewGrades.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -285,7 +283,58 @@ namespace GradeApp
             txbmodifiedby.Text = row.Cells["ModifiedBy"].Value?.ToString() ?? "";
 
             checkBoxisdeleted.Checked = row.Cells["IsDeleted"].Value is bool a && a;
+            dataGridViewGrades.Cursor = Cursors.Default;
 
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+            string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=StudManagement;Integrated Security=True;TrustServerCertificate=True";
+
+
+            int selectedRowIndex = dataGridViewGrades.SelectedRows[0].Index;
+            int GradeID = Convert.ToInt32(dataGridViewGrades.Rows[selectedRowIndex].Cells["GradeID"].Value);
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"UPDATE dbo.MstGrades SET GradeName = @GradeName,
+              Description = @Description,
+              ActiveStatus = @IsActive,
+              IsDeleted = @IsDeleted,
+              ModifiedBy = @ModifiedBy,
+              ModifiedDate = GETDATE()
+              WHERE GradeID = @GradeID";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@GradeID", GradeID);
+                    cmd.Parameters.AddWithValue("@GradeName", txbgradename.Text);
+                    cmd.Parameters.AddWithValue("@Description", txbdesc.Text);
+                    cmd.Parameters.AddWithValue("@IsActive", checkBoxactivestatus.Checked);
+                    cmd.Parameters.AddWithValue("@IsDeleted", checkBoxisdeleted.Checked);
+                    cmd.Parameters.AddWithValue("@CreatedBy", txbcreatedby.Text);
+                    cmd.Parameters.AddWithValue("@ModifiedBy", txbmodifiedby.Text);
+
+                    try
+                    {
+                        conn.Open();
+                        int result = cmd.ExecuteNonQuery();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Record Updated successfully.");
+                            ClearForm(); // optional: clear inputs after insert
+                        }
+                        else
+                        {
+                            MessageBox.Show("Updation failed.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error****************: " + ex.Message);
+                    }
+                }
+            }
         }
     }
 }
