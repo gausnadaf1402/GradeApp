@@ -24,6 +24,9 @@ namespace GradeApp
 
             dataGridViewGrades.AllowUserToAddRows = false;
             dataGridViewGrades.RowHeadersVisible = false;
+            dataGridViewGrades.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewGrades.MultiSelect = true;
+            dataGridViewGrades.DataBindingComplete += dataGridViewGrades_DataBindingComplete;
             panelWidth = panelShowGrades.Width;
             hiddenXPosition = this.Width;                  // Panel fully hidden off-screen
             shownXPosition = this.Width - panelWidth;      // Visible position
@@ -235,6 +238,30 @@ namespace GradeApp
                 MessageBox.Show("Please select a row to delete.");
             }
         }
+        private void dataGridViewGrades_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            SelectLastRealRow();
+        }
+
+        private void SelectLastRealRow()
+        {
+            if (dataGridViewGrades.Rows.Count == 0) return;
+
+            int lastIndex = dataGridViewGrades.Rows.Count - 1;
+
+            // If the last row is the placeholder new row, step back
+            if (dataGridViewGrades.AllowUserToAddRows && dataGridViewGrades.Rows[lastIndex].IsNewRow)
+            {
+                lastIndex--;
+            }
+
+            if (lastIndex < 0) return;
+
+            dataGridViewGrades.ClearSelection();
+            dataGridViewGrades.Rows[lastIndex].Selected = true;
+            dataGridViewGrades.FirstDisplayedScrollingRowIndex = lastIndex;
+        }
+
 
 
     }

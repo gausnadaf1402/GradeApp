@@ -239,7 +239,7 @@ namespace GradeApp
             this.btnshow.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnshow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnshow.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnshow.Location = new System.Drawing.Point(495, 469);
+            this.btnshow.Location = new System.Drawing.Point(554, 469);
             this.btnshow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnshow.Name = "btnshow";
             this.btnshow.Size = new System.Drawing.Size(132, 43);
