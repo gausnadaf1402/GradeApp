@@ -22,6 +22,7 @@ namespace GradeApp
         {
             InitializeComponent();
 
+            dataGridViewGrades.ReadOnly = true;
             dataGridViewGrades.AllowUserToAddRows = false;
             dataGridViewGrades.RowHeadersVisible = false;
             dataGridViewGrades.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -283,7 +284,7 @@ namespace GradeApp
             txbmodifiedby.Text = row.Cells["ModifiedBy"].Value?.ToString() ?? "";
 
             checkBoxisdeleted.Checked = row.Cells["IsDeleted"].Value is bool a && a;
-            dataGridViewGrades.Cursor = Cursors.Default;
+            //dataGridViewGrades.Cursor = Cursors.Default;
 
         }
 

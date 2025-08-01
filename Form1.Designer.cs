@@ -41,7 +41,6 @@ namespace GradeApp
             this.txbdesc = new System.Windows.Forms.TextBox();
             this.txbcreatedby = new System.Windows.Forms.TextBox();
             this.txbmodifiedby = new System.Windows.Forms.TextBox();
-            this.btnadd = new System.Windows.Forms.Button();
             this.lblisdeleted = new System.Windows.Forms.Label();
             this.checkBoxisdeleted = new System.Windows.Forms.CheckBox();
             this.checkBoxactivestatus = new System.Windows.Forms.CheckBox();
@@ -56,6 +55,7 @@ namespace GradeApp
             this.TimerSlideGrid = new System.Windows.Forms.Timer(this.components);
             this.btndelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnadd = new System.Windows.Forms.Button();
             this.panelShowGrades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGrades)).BeginInit();
             this.SuspendLayout();
@@ -172,20 +172,6 @@ namespace GradeApp
             this.txbmodifiedby.Name = "txbmodifiedby";
             this.txbmodifiedby.Size = new System.Drawing.Size(231, 29);
             this.txbmodifiedby.TabIndex = 18;
-            // 
-            // btnadd
-            // 
-            this.btnadd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnadd.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnadd.Location = new System.Drawing.Point(19, 468);
-            this.btnadd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnadd.Name = "btnadd";
-            this.btnadd.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.btnadd.Size = new System.Drawing.Size(103, 43);
-            this.btnadd.TabIndex = 19;
-            this.btnadd.Text = "Add";
-            this.btnadd.UseVisualStyleBackColor = true;
-            this.btnadd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblisdeleted
             // 
@@ -355,6 +341,21 @@ namespace GradeApp
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnadd
+            // 
+            this.btnadd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnadd.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnadd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnadd.Location = new System.Drawing.Point(19, 468);
+            this.btnadd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.btnadd.Size = new System.Drawing.Size(103, 43);
+            this.btnadd.TabIndex = 19;
+            this.btnadd.Text = "Add";
+            this.btnadd.UseVisualStyleBackColor = true;
+            this.btnadd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // MainForm
             // 
