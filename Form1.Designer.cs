@@ -253,11 +253,11 @@ namespace GradeApp
             this.panelShowGrades.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelShowGrades.BackColor = System.Drawing.SystemColors.Control;
             this.panelShowGrades.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelShowGrades.Controls.Add(this.dataGridViewGrades);
             this.panelShowGrades.Controls.Add(this.txtSearch);
             this.panelShowGrades.Controls.Add(this.lblsearch);
             this.panelShowGrades.Controls.Add(this.lblgradesesshow);
             this.panelShowGrades.Controls.Add(this.btnhide);
-            this.panelShowGrades.Controls.Add(this.dataGridViewGrades);
             this.panelShowGrades.Location = new System.Drawing.Point(717, 0);
             this.panelShowGrades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelShowGrades.Name = "panelShowGrades";

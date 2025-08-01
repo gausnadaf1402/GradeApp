@@ -17,11 +17,13 @@ namespace GradeApp
         private int panelWidth;
         private int hiddenXPosition;
         private int shownXPosition;
+        private int selectedGradeId = -1;
         public MainForm()
         {
             InitializeComponent();
 
 
+           
             dataGridViewGrades.AllowUserToAddRows = false;
             dataGridViewGrades.RowHeadersVisible = false;
             dataGridViewGrades.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -36,6 +38,8 @@ namespace GradeApp
             //panelShowGrades.Height = this.Height;
 
             // Safety hookup (in case not done in designer)
+
+            dataGridViewGrades.SelectionChanged += dataGridViewGrades_SelectionChanged;
             btnshow.Click += btnshow_Click;
             btnhide.Click += btnhide_Click;
             TimerSlideGrid.Tick += timerSlide_Tick;
@@ -262,7 +266,26 @@ namespace GradeApp
             dataGridViewGrades.FirstDisplayedScrollingRowIndex = lastIndex;
         }
 
+        private void dataGridViewGrades_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewGrades.SelectedRows.Count == 0)
+                return;
 
+            var row = dataGridViewGrades.SelectedRows[0];
+            if (row.Cells["GradeID"].Value == null)
+                return;
 
+            selectedGradeId = Convert.ToInt32(row.Cells["GradeID"].Value);
+            txbgradename.Text = row.Cells["GradeName"].Value?.ToString() ?? "";
+            txbdesc.Text = row.Cells["Description"].Value?.ToString() ?? "";
+            checkBoxactivestatus.Checked = row.Cells["ActiveStatus"].Value is bool b && b;
+
+            txbcreatedby.Text = row.Cells["CreatedBy"].Value?.ToString() ?? "";
+
+            txbmodifiedby.Text = row.Cells["ModifiedBy"].Value?.ToString() ?? "";
+
+            checkBoxisdeleted.Checked = row.Cells["IsDeleted"].Value is bool a && a;
+
+        }
     }
 }
